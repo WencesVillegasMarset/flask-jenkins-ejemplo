@@ -10,7 +10,11 @@ pipeline {
         }
       }
       steps {
-        sh 'pip install -r requirements.txt --user'
+        sh """
+            pip install -r requirements.txt --user
+            python app.py
+        """
+
       }
     }
     stage('test') {
