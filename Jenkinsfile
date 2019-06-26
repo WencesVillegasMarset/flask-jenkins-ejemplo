@@ -1,32 +1,23 @@
 pipeline {
-  agent none
-  stages {
-    stage('build') {
-      agent {
+  agent {
         docker {
           // Set both label and image
           image 'python:3.7.2'
           args '--user 0:0'
         }
       }
+  stages {
+    stage('build') {
       steps {
         sh """
             pip install -r requirements.txt --user
-            python app.py
         """
 
       }
     }
     stage('test') {
-      agent {
-        docker {
-          // Set both label and image
-          image 'python:3.7.2'
-          args '--user 0:0'
-        }
-      }
       steps {
-        sh 'pip install -r requirements.txt --user'
+       // sh 'pip install -r requirements.txt --user'
         sh 'python test.py'
       }
       post {
