@@ -7,6 +7,7 @@ bd = {
     3:'Roberto',
     4:'Jose',
     5:'Carlos',
+    6:'Braulio'
 }
 @app.route('/')
 @app.route('/hello')  # this route is not working
