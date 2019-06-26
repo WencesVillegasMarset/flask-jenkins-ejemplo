@@ -18,7 +18,7 @@ def hello_world():
 @app.route('/hello/<user_id>') # dynamic route
 def hello_user(user_id):
     # show the user profile for that user
-    return 'Hola  %s!\n' % bd[user_id]
+    return 'Hola  %s!\n' % bd[int(user_id)]
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')  # open for everyone
