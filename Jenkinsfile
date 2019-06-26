@@ -1,12 +1,10 @@
 pipeline {
-  
-  agent { label 'docker' }
+  agent none
   stages {
     stage('build') {
       agent {
         docker {
           // Set both label and image
-          label 'docker'
           image 'python:3.7.2'
         }
       }
@@ -18,7 +16,6 @@ pipeline {
       agent {
         docker {
           // Set both label and image
-          label 'docker'
           image 'python:3.7.2'
         }
       }
