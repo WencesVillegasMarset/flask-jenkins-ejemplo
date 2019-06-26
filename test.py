@@ -19,8 +19,9 @@ class TestHello(unittest.TestCase):
         self.assertEqual(rv.data, b'Hello World!\n')
 
     def test_hello_name(self):
-        name = 'Simon'
-        rv = self.app.get(f'/hello/{name}')
+        id_name = 1
+        name = 'Juan'
+        rv = self.app.get(f'/hello/{id_name}')
         self.assertEqual(rv.status, '200 OK')
         self.assertIn(bytearray(f"{name}", 'utf-8'), rv.data)
 

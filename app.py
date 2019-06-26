@@ -14,10 +14,10 @@ bd = {
 def hello_world():
     return 'Hello World!\n'
 
-@app.route('/hello/<username>') # dynamic route
-def hello_user(username):
+@app.route('/hello/<user_id>') # dynamic route
+def hello_user(user_id):
     # show the user profile for that user
-    return 'Hola  %s!\n' % username
+    return 'Hola  %s!\n' % bd[user_id]
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')  # open for everyone
