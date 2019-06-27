@@ -17,13 +17,25 @@ pipeline {
     stage('test') {
       steps {
        // sh 'pip install -r requirements.txt --user'
-        sh 'python test.py'
+        sh """
+            python test.py
+        """
       }
       post {
         always {
           junit 'test-reports/*.xml'
-        }
+        } 
       }    
+    }
+    stage('Deploy') {
+        when {
+          expression {
+            currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+          }
+        }
+        steps {
+            sh 'python app.py sdist bdist_wheel'
+      }
     }
   }
 }
