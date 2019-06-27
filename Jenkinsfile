@@ -27,7 +27,7 @@ pipeline {
         } 
       }    
     }
-    stage('Deploy') {
+    stage('deploy') {
         when {
           expression {
             currentBuild.result == null || currentBuild.result == 'SUCCESS' 
