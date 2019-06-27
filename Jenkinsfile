@@ -34,7 +34,7 @@ pipeline {
           }
         }
         steps {
-            sh 'python app.py sdist bdist_wheel'
+            sh 'echo Deploy a produccion'
       }
     }
   }
